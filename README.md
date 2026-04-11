@@ -1,103 +1,59 @@
-# 🌳 Decision Tree Iris Classification
+# 📩 Spam Message Classifier using Machine Learning
 
-This project demonstrates the implementation of a **Decision Tree Classifier** using the famous Iris dataset. It focuses on understanding how decision trees work and how controlling model complexity helps prevent overfitting.
+This project is a spam detection system built using **Python, Scikit-learn, and Streamlit**. It classifies SMS or email messages as **Spam (1)** or **Ham (0)** using machine learning techniques.
 
-## 📌 Project Overview
+## 🚀 Project Overview
 
-* Load Iris dataset from `sklearn`
-* Split data into training and testing sets
-* Train a Decision Tree model
-* Evaluate performance using accuracy
-* Visualize the decision tree
+* Reads dataset from `combined_dataset.csv`
+* Normalizes labels into binary format (ham = 0, spam = 1)
+* Removes invalid or missing data for better model performance
+* Cleans text data (lowercasing, removing special characters, trimming spaces)
+* Converts text into numerical features using **TF-IDF Vectorizer**
 
-## ⚙️ Technologies Used
+## ⚙️ Model Workflow
+
+* Splits dataset into training and testing sets using `train_test_split`
+* Trains a **Random Forest Classifier** for prediction
+* Evaluates performance using accuracy and classification metrics
+
+## 🌐 Streamlit Integration
+
+* Provides a simple UI to input messages
+* Predicts whether the message is spam or not in real time
+
+## 📊 Technologies Used
 
 * Python 🐍
-* Pandas
+* Pandas, NumPy
 * Scikit-learn
-* Matplotlib
-
-## 🧠 How It Works
-
-### 1. Data Loading
-
-```python
-from sklearn.datasets import load_iris
-```
-
-The dataset contains 150 samples with features like sepal and petal dimensions.
-
-### 2. Train-Test Split
-
-```python
-from sklearn.model_selection import train_test_split
-```
-
-* 80% training
-* 20% testing
-
-### 3. Model Training
-
-```python
-from sklearn.tree import DecisionTreeClassifier
-
-model = DecisionTreeClassifier(max_depth=2)
-model.fit(X_train, y_train)
-```
-
-### 🌳 Why `max_depth = 2`?
-
-#### 🔴 Overfitting Problem
-
-* Too many splits
-* Memorizes training data
-* Poor performance on new data
-
-#### 🟢 Solution
-
-* Limits tree growth
-* Focuses on important patterns
-* Improves generalization
-
-## 📊 Result
-
-* Accuracy: ~98%
-
-## 🌿 Visualization
-
-```python
-from sklearn.tree import plot_tree
-```
-
-Helps understand decision paths and feature importance.
+* Matplotlib, Seaborn
+* Streamlit
 
 ## 📁 Project Structure
 
 ```
-decision-tree-iris-classification/
+spam-classifier/
 │
-├── decision_tree_iris.ipynb
-├── model.py
+├── app.py              # Streamlit app
+├── model.py            # ML model logic
+├── combined_dataset.csv
 ├── requirements.txt
 └── README.md
 ```
 
-## 🚀 How to Run
+## 🎯 Key Features
 
-```bash
-git clone https://github.com/your-username/decision-tree-iris-classification.git
-pip install -r requirements.txt
-```
+* End-to-end ML pipeline (data → preprocessing → training → prediction)
+* Text classification using NLP techniques
+* Interactive web interface using Streamlit
 
-## 🎯 Key Learnings
+## 🔮 Future Improvements
 
-* Decision Tree fundamentals
-* Overfitting vs Generalization
-* Importance of `max_depth`
-* Model evaluation
+* Hyperparameter tuning
+* Try other models (Naive Bayes, Logistic Regression)
+* Deploy on cloud (Render / Streamlit Cloud)
+* Improve preprocessing with stopword removal
 
-## 📌 Future Improvements
+---
 
-* Compare different `max_depth` values
-* Add confusion matrix
-* Try advanced models
+💡 This project demonstrates practical application of NLP and machine learning for real-world spam detection.
